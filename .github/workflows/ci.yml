@@ -1,4 +1,5 @@
 name: ci
+
 on:
   pull_request:
   push:
@@ -23,9 +24,11 @@ jobs:
 
       - name: Build APK
         run: ./gradlew :app:assembleDebug
-              - name: Upload APK
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: OpenCompanion-APK
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 7
+          
